@@ -7,10 +7,3 @@ package call
 type CallStarted struct {
 	CallID string
 }
-
-func NewCall(id string) *Call {
-	return &Call{
-		ID:    id,
-		State: CallStateNew,
-	}
-}
