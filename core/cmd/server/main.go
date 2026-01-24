@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"ari/internal/ariutil"
-	"ari/internal/ivr"
+	"fred-core/internal/ariutil"
+	"fred-core/internal/ivr"
 
 	"github.com/charmbracelet/log"
 )
