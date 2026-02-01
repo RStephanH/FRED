@@ -7,3 +7,11 @@ package call
 type CallStarted struct {
 	CallID string
 }
+
+type CallAnswered struct {
+	CallID string
+}
+
+type CallEnded struct {
+	CallID string
+}
