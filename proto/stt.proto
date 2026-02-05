@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package speech;
+
+// The STT service
+service SpeechService {
+  rpc SpeechToText(SpeechRequest) returns (SpeechResponse);
+}
+
+// Request: audio bytes
+message SpeechRequest { bytes audio = 1; }
+
+// Response: recognized text
+message SpeechResponse { string text = 1; }
