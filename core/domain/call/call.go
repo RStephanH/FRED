@@ -26,11 +26,20 @@ func (c *Call) GetState() CallState {
 func (c *Call) On(event interface{}) {
 	switch event.(type) {
 	case CallStarted:
-		c.State = CallStateNew
+		// Only valid if call is brand new (creation case)
+		if c.State == CallStateNew {
+			// already NEW, nothing to change
+		}
 	case CallAnswered:
-		c.State = CallStateActive
+		// Only NEW → ACTIVE is allowed
+		if c.State == CallStateNew {
+			c.State = CallStateActive
+		}
 	case CallEnded:
-		c.State = CallStateEnded
+		// NEW → ENDED or ACTIVE → ENDED
+		if c.State == CallStateNew || c.State == CallStateActive {
+			c.State = CallStateEnded
+		}
 	default:
 		log.Fatalf("Unknown event type: %T, event: %v", event, event)
 	}
