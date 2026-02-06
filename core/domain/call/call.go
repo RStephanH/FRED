@@ -23,7 +23,7 @@ func (c *Call) GetState() CallState {
 }
 
 // TODO: the event type in a variable and also indicates the timestamp of the event
-func (c *Call) On(event interface{}) {
+func (c *Call) On(event Event) {
 	switch event.(type) {
 	case CallStarted:
 		// Only valid if call is brand new (creation case)
